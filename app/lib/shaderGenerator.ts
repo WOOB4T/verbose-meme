@@ -19,35 +19,63 @@ function generateColorPalette(seed: number): { color1: number[]; color2: number[
   const r1 = seededRandom(seed * 1.1);
   const r2 = seededRandom(seed * 1.2);
   const r3 = seededRandom(seed * 1.3);
+  const r4 = seededRandom(seed * 1.4);
+  const r5 = seededRandom(seed * 1.5);
+  const r6 = seededRandom(seed * 1.6);
   
-  const paletteType = Math.floor(seededRandom(seed * 1.4) * 5);
+  const paletteType = Math.floor(seededRandom(seed * 1.7) * 10);
   
   let color1: number[], color2: number[], color3: number[];
   
   switch(paletteType) {
-    case 0: // Vibrant
+    case 0: // Vibrant Rainbow
       color1 = [0.5, 0.5, 0.5];
       color2 = [0.5, 0.5, 0.5];
       color3 = [1.0, 1.0, 1.0];
       break;
-    case 1: // Pastel
+    case 1: // Pastel Dream
       color1 = [0.5, 0.5, 0.5];
       color2 = [0.5, 0.5, 0.5];
-      color3 = [0.8, 0.8, 0.8];
+      color3 = [0.8 + r1 * 0.2, 0.8 + r2 * 0.2, 0.8 + r3 * 0.2];
       break;
-    case 2: // Neon
+    case 2: // Neon Glow
       color1 = [0.5, 0.5, 0.5];
       color2 = [0.5 + r1 * 0.3, 0.5 + r2 * 0.3, 0.5 + r3 * 0.3];
-      color3 = [1.0, 1.0, 0.5];
+      color3 = [1.0, 1.0, 0.5 + r4 * 0.5];
       break;
-    case 3: // Deep
-      color1 = [0.0, 0.0, 0.0];
-      color2 = [0.3 + r1 * 0.3, 0.3 + r2 * 0.3, 0.3 + r3 * 0.3];
-      color3 = [0.5, 0.5, 0.5];
+    case 3: // Deep Ocean
+      color1 = [0.0, 0.1 * r1, 0.2 * r2];
+      color2 = [0.1 + r1 * 0.2, 0.3 + r2 * 0.2, 0.5 + r3 * 0.3];
+      color3 = [0.3, 0.6, 0.8];
       break;
-    default: // Custom
+    case 4: // Sunset Fire
+      color1 = [0.5, 0.2, 0.0];
+      color2 = [0.5, 0.3 + r1 * 0.2, 0.1];
+      color3 = [1.0, 0.5 + r2 * 0.3, 0.2 + r3 * 0.3];
+      break;
+    case 5: // Toxic Slime
+      color1 = [0.2 * r1, 0.5, 0.1 * r2];
+      color2 = [0.3 + r3 * 0.2, 0.5, 0.2 + r4 * 0.2];
+      color3 = [0.5 + r5 * 0.3, 0.9, 0.3 + r6 * 0.3];
+      break;
+    case 6: // Purple Haze
+      color1 = [0.3, 0.0, 0.3];
+      color2 = [0.4 + r1 * 0.2, 0.2 * r2, 0.5 + r3 * 0.3];
+      color3 = [0.6 + r4 * 0.3, 0.3 + r5 * 0.3, 0.8 + r6 * 0.2];
+      break;
+    case 7: // Cyber Pink
+      color1 = [0.5, 0.1 * r1, 0.4];
+      color2 = [0.5 + r2 * 0.2, 0.2 + r3 * 0.2, 0.5 + r4 * 0.2];
+      color3 = [1.0, 0.2 + r5 * 0.3, 0.8 + r6 * 0.2];
+      break;
+    case 8: // Earth Tones
+      color1 = [0.3 + r1 * 0.2, 0.2 + r2 * 0.1, 0.1];
+      color2 = [0.4 + r3 * 0.2, 0.3 + r4 * 0.2, 0.2 + r5 * 0.2];
+      color3 = [0.6 + r1 * 0.2, 0.5 + r2 * 0.2, 0.3 + r3 * 0.2];
+      break;
+    default: // Alien Spectrum
       color1 = [r1 * 0.5, r2 * 0.5, r3 * 0.5];
-      color2 = [0.3 + r1 * 0.4, 0.3 + r2 * 0.4, 0.3 + r3 * 0.4];
+      color2 = [0.3 + r4 * 0.5, 0.3 + r5 * 0.5, 0.3 + r6 * 0.5];
       color3 = [0.5 + r1 * 0.5, 0.5 + r2 * 0.5, 0.5 + r3 * 0.5];
   }
   
@@ -136,6 +164,70 @@ export function generateShader(id: number): ShaderConfig {
       
     case 'interference':
       uniforms.u_sources = Math.floor(2 + seededRandom(id * 3.4) * 4);
+      break;
+      
+    case 'raymarched_spheres':
+      // Uses default uniforms (colors) - no special parameters needed
+      break;
+      
+    case 'hexagonal_grid':
+      uniforms.u_scale = 5.0 + seededRandom(id * 3.5) * 10.0;
+      break;
+      
+    case 'domain_warping':
+      uniforms.u_warpAmount = 0.1 + seededRandom(id * 3.6) * 0.4;
+      break;
+      
+    case 'metaballs':
+      uniforms.u_ballCount = Math.floor(3 + seededRandom(id * 3.7) * 5);
+      break;
+      
+    case 'reaction_diffusion':
+      uniforms.u_complexity = 0.5 + seededRandom(id * 3.8) * 1.5;
+      break;
+      
+    case 'optical_illusion':
+      uniforms.u_rings = 10.0 + seededRandom(id * 3.9) * 30.0;
+      break;
+      
+    case 'cellular_automata':
+      uniforms.u_scale = 5.0 + seededRandom(id * 4.0) * 15.0;
+      break;
+      
+    case 'perlin_worms':
+      uniforms.u_thickness = 0.05 + seededRandom(id * 4.1) * 0.15;
+      break;
+      
+    case 'fractal_tree':
+      uniforms.u_branches = 3.0 + seededRandom(id * 4.2) * 10.0;
+      break;
+      
+    case 'hypnotic_circles':
+      uniforms.u_circleCount = Math.floor(5 + seededRandom(id * 4.3) * 10);
+      break;
+      
+    case 'lava_lamp':
+      uniforms.u_blobSize = 0.03 + seededRandom(id * 4.4) * 0.07;
+      break;
+      
+    case 'electric_field':
+      uniforms.u_charges = Math.floor(3 + seededRandom(id * 4.5) * 5);
+      break;
+      
+    case 'paisley_pattern':
+      uniforms.u_scale = 3.0 + seededRandom(id * 4.6) * 7.0;
+      break;
+      
+    case 'aurora':
+      uniforms.u_waves = Math.floor(3 + seededRandom(id * 4.7) * 5);
+      break;
+      
+    case 'geometric_tiles':
+      uniforms.u_scale = 5.0 + seededRandom(id * 4.8) * 10.0;
+      break;
+      
+    case 'cosmic_dust':
+      uniforms.u_density = 2.0 + seededRandom(id * 4.9) * 5.0;
       break;
   }
   
