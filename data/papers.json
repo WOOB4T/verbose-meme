@@ -1,0 +1,74 @@
+{
+  "papers": [
+    {
+      "metadata": {
+        "id": "2405.12345",
+        "arxivId": "2405.12345",
+        "title": "Real-Time Ray Tracing with Neural Importance Sampling",
+        "authors": ["John Smith", "Jane Doe", "Bob Johnson"],
+        "abstract": "We present a novel approach to accelerate ray tracing using neural importance sampling. Our method learns importance distributions from previous frames to guide ray sampling in real-time rendering.",
+        "pdfUrl": "https://arxiv.org/pdf/2405.12345.pdf",
+        "publishedAt": "2024-05-15T10:30:00Z",
+        "categories": ["cs.GR", "cs.CV"]
+      },
+      "classifier": {
+        "techniqueCategories": ["REAL_TIME_RAY_TRACING", "NEURAL_RENDERING", "SHADER_OPTIMIZATION"],
+        "realTimeFeability": 0.85,
+        "rationale": "Focuses on REAL_TIME_RAY_TRACING, NEURAL_RENDERING, SHADER_OPTIMIZATION. Real-time ray tracing techniques with modern GPU support are implementable in WebGL-based projects."
+      }
+    },
+    {
+      "metadata": {
+        "id": "2404.98765",
+        "arxivId": "2404.98765",
+        "title": "Efficient GPU-Based Mesh Processing for Game Engines",
+        "authors": ["Alice Chen", "Charlie Brown"],
+        "abstract": "This work presents optimization techniques for mesh processing on GPUs with 3x speedup compared to CPU implementations.",
+        "pdfUrl": "https://arxiv.org/pdf/2404.98765.pdf",
+        "publishedAt": "2024-04-20T14:15:00Z",
+        "categories": ["cs.GR"]
+      },
+      "classifier": {
+        "techniqueCategories": ["GEOMETRY_PROCESSING", "GPU_ACCELERATION", "PERFORMANCE_OPTIMIZATION"],
+        "realTimeFeability": 0.78,
+        "rationale": "Focuses on GEOMETRY_PROCESSING, GPU_ACCELERATION, PERFORMANCE_OPTIMIZATION. GPU-optimized techniques are directly applicable to WebGL implementations."
+      }
+    },
+    {
+      "metadata": {
+        "id": "2403.55432",
+        "arxivId": "2403.55432",
+        "title": "Interactive Volumetric Rendering for Medical Imaging",
+        "authors": ["David Miller", "Emma Wilson", "Frank Taylor"],
+        "abstract": "We propose a real-time volumetric rendering system for medical imaging applications using WebGL.",
+        "pdfUrl": "https://arxiv.org/pdf/2403.55432.pdf",
+        "publishedAt": "2024-03-10T09:45:00Z",
+        "categories": ["cs.GR", "cs.CV"]
+      },
+      "classifier": {
+        "techniqueCategories": ["VOLUMETRIC_RENDERING", "GPU_ACCELERATION", "REAL_TIME_RAY_TRACING"],
+        "realTimeFeability": 0.88,
+        "rationale": "Focuses on VOLUMETRIC_RENDERING, GPU_ACCELERATION, REAL_TIME_RAY_TRACING. Real-time ray tracing techniques with modern GPU support are implementable in WebGL-based projects."
+      }
+    },
+    {
+      "metadata": {
+        "id": "2402.11111",
+        "arxivId": "2402.11111",
+        "title": "Procedural Animation Blending for Character Movement",
+        "authors": ["Grace Lee"],
+        "abstract": "We present an animation system that blends procedural techniques with keyframe animation for smooth character movement.",
+        "pdfUrl": "https://arxiv.org/pdf/2402.11111.pdf",
+        "publishedAt": "2024-02-14T16:20:00Z",
+        "categories": ["cs.GR"]
+      },
+      "classifier": {
+        "techniqueCategories": ["ANIMATION", "GPU_ACCELERATION", "SHADER_OPTIMIZATION"],
+        "realTimeFeability": 0.82,
+        "rationale": "Covers ANIMATION, GPU_ACCELERATION, SHADER_OPTIMIZATION. These techniques integrate well with WebGL rendering pipelines."
+      }
+    }
+  ],
+  "lastUpdated": "2024-12-10T19:30:00Z",
+  "totalCount": 4
+}
